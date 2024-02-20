@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Upload";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Video</title>
+    <link href="~/css/designfile.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container custom-container">
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger custom-alert">
+                @foreach (var key in ViewData.ModelState.Keys)
+                {
+                    foreach (var error in ViewData.ModelState[key].Errors)
+                    {
+                        <span><i><b>@error.ErrorMessage</b></i></span>
+                        <br />
+                    }
+                }
+            </div>
+        }
+        <form asp-controller="Upload" asp-action="UploadFiles" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <p for="fileInput" class="info"><i><b>Choose MP4 files to upload to Video Catalogue</b></i></p>
+                <input type="file" id="fileInput" name="Files" accept=".mp4" multiple>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary upload-button">Upload</button>
+        </form>
+    </div>
+</body>
+</html>

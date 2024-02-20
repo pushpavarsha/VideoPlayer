@@ -1,0 +1,59 @@
+﻿@model IEnumerable<VideoFile>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List of Video Files</title>
+    <link href="~/css/designfile.css" rel="stylesheet" />
+    <link href="~/css/designfile.css" rel="stylesheet" />
+    <script src="~/js/custom.js"></script>
+</head>
+<body>
+    <div class="container custom-container">
+        @if (Model.Any())
+        {
+            <p class="info"><i><b>Select a video from table to start playback </b></i></p>
+            <div class="video-container">
+                <video id="videoPlayer" controls>
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <br/>
+            <table class="file-details">
+                <thead>
+                    <tr class="custom-tr">
+                        <th>Video Name</th>
+                        <th>File Size KB</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var file in Model)
+                    {
+                        <tr>
+                            <td style="width:80%"><a href="#" onclick="playVideo('@file.FileName')">@file.FileName</a></td>
+                            <td>@FileSizeString(file.Size)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            
+        }
+        else
+        {
+            <p class="info"><i><b>The catalogue is empty. Use the upload form to add videos.</b></i></p>
+        }
+    </div>
+    <script>
+        @functions {
+            public string FileSizeString(long size)
+            {
+                const int KB = 1024;
+
+                double kbSize = (double)size / KB;
+                return $"{kbSize:F2}";
+            }
+        }
+
+    </script>
+</body>
+</html>

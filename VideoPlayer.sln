@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoPlayer", "VideoPlayer\VideoPlayer.csproj", "{A0AE856A-2A95-4963-8ED0-FB1C9A13F6BC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UploadVideoAPI", "UploadVideo\UploadVideoAPI.csproj", "{C0160E2C-E81B-46B0-9BCC-578D507942C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0AE856A-2A95-4963-8ED0-FB1C9A13F6BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0AE856A-2A95-4963-8ED0-FB1C9A13F6BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0AE856A-2A95-4963-8ED0-FB1C9A13F6BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0AE856A-2A95-4963-8ED0-FB1C9A13F6BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0160E2C-E81B-46B0-9BCC-578D507942C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0160E2C-E81B-46B0-9BCC-578D507942C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0160E2C-E81B-46B0-9BCC-578D507942C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0160E2C-E81B-46B0-9BCC-578D507942C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3085151F-28AF-4944-AE28-17F8EAB5A28F}
+	EndGlobalSection
+EndGlobal
