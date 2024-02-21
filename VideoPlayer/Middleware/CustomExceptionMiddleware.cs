@@ -19,12 +19,12 @@
             {
                 if (ex is BadHttpRequestException badRequestEx && badRequestEx.StatusCode == 413)
                 {
-                    context.Response.StatusCode = 413; // Set the response status code to 413
+                    context.Response.StatusCode = 413; 
                     await context.Response.WriteAsync("Custom error message: File size too large.");
                     return;
                 }
 
-                throw; // Re-throw the exception if it's not the one we're handling
+                throw; 
             }
         }
     }

@@ -30,7 +30,7 @@
                     @foreach (var file in Model)
                     {
                         <tr>
-                            <td style="width:80%"><a href="#" onclick="playVideo('@file.FileName')">@file.FileName</a></td>
+                            <td style="width:80%"><a onclick="playVideo('@file.FileName')">@file.FileName</a></td>
                             <td>@FileSizeString(file.Size)</td>
                         </tr>
                     }

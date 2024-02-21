@@ -7,6 +7,7 @@
 <head>
     <title>Upload Video</title>
     <link href="~/css/designfile.css" rel="stylesheet" />
+    <script src="~/js/custom.js"></script>
 </head>
 <body>
     <div class="container custom-container">
@@ -23,13 +24,13 @@
                 }
             </div>
         }
-        <form asp-controller="Upload" asp-action="UploadFiles" method="post" enctype="multipart/form-data">
+        <form id="uploadForm" onsubmit="return SubmitFiles('UploadFiles');" asp-controller="Upload" asp-action="UploadFiles" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <p for="fileInput" class="info"><i><b>Choose MP4 files to upload to Video Catalogue</b></i></p>
                 <input type="file" id="fileInput" name="Files" accept=".mp4" multiple>
             </div>
             <br />
-            <button type="submit" class="btn btn-primary upload-button">Upload</button>
+            <button class="btn btn-primary upload-button" >Upload</button>
         </form>
     </div>
 </body>

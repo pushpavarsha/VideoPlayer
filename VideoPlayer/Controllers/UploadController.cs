@@ -25,16 +25,32 @@ namespace VideoPlayer.Controllers
         }
 
         [HttpGet]
-        public IActionResult Catalogue()
+        public IActionResult Catalogue(bool partial = false)
         {
+
             ViewBag.MediaFolderPath = _mediaFolderPath;
             var VideoFileModel = _filerepository.GetVideoFiles();
-            return View(VideoFileModel);
+            if (partial)
+            {
+                return PartialView(VideoFileModel);
+            }
+            else
+            {
+                return View(VideoFileModel);
+            }
         }
+
         [HttpGet]
-        public IActionResult UploadFiles()
-        { 
-           return View();
+        public IActionResult UploadFiles(bool partial = false)
+        {
+            if (partial)
+            {
+                return PartialView("UploadFiles");
+            }
+            else
+            {
+                return View("UploadFiles");
+            }
         }
         [HttpPost]
         public async Task<IActionResult> UploadFiles(FileDetail videoFiles)
@@ -45,13 +61,13 @@ namespace VideoPlayer.Controllers
                 {
                     throw new RequestBodyTooLargeException("whilst uploading file(s).Response Code 413.Please try again.");
                 }
-                if (videoFiles.Files == null||videoFiles.Files.Count == 0)
+                if (videoFiles.Files == null || videoFiles.Files.Count == 0)
                 {
-                    ModelState.AddModelError("", "No files selected for upload.");
-                    return View();
+                     ModelState.AddModelError("", "No files selected for upload.");
+                     return View();    
                 }
                 var success = await _filerepository.UploadFiles(videoFiles);
-                if(success)
+                if (success)
                 {
                     return RedirectToAction("Catalogue", "Upload");
                 }

@@ -112,6 +112,8 @@ input[type="file"] {
 }
 .custom-nav-link {
     color: #ffffff !important;
+    background-color: #313131;
+    border:none;
 }
 .custom-tr
 {

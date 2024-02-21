@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/VideoPlayer.styles.css" asp-append-version="true" />
+    <script src="~/js/custom.js"></script>
 </head>
 <body>
     <header>
@@ -16,10 +17,10 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link custom-nav-link" asp-area="" asp-controller="Upload" asp-action="Catalogue">Catalogue</a>
+                            <button class="nav-link custom-nav-link" onclick="loadView('Catalogue')">Catalogue</button>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link custom-nav-link" asp-area="" asp-controller="Upload" asp-action="UploadFiles">Upload</a>
+                            <button class="nav-link custom-nav-link" onclick="loadView('UploadFiles')">Upload</button>
                         </li>
                     </ul>
                 </div>
@@ -27,7 +28,7 @@
         </nav>
     </header>
     <div class="container custom-container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3" id="content-main">
             @RenderBody()
         </main>
     </div>
