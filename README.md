@@ -1,5 +1,10 @@
 Honeywell Assignment: Video Player
 
+Steps to run the project:
+1.Open the solution in VS 2022.
+2. Set both the project (UploadVideoAPI and VideoPlayer) as a startup project.
+  Right click on the solution ->Configure startup projects->Multiple startup projects->Choose Action as ‘Start’->Apply->Ok
+3.Click on start.
 What is working:
 
 * The web application is to provide all of its view(s) from one single URL - Home/Index. The default path should direct to Home/Index, so the path can be ommitted and the site can be accessed simply from 'https://localhost:{portNum}/'
@@ -32,5 +37,5 @@ What is not Working:
 * The upload API should accept uploads of up to 200 megabytes, no more. This limit should be enforced for the upload API only. Uploads greater than 200MB should return an appropriate error code. Any other endpoints exposed by the web application should continue to enforce the default ASP.NET upload limit (which is much less than 200MB).
 
 Note: Due to some time constraint I am not able to resolve this point(200MB file) .
-But the application is working for small Files.  I have attached the sample video files in the “SampleVideo” folder.
+But the application is working for small Files.  I have attached the sample video files in the “SampleVideos.zip” folder in the git repository as well as attached in the email.
 
