@@ -64,23 +64,23 @@ namespace VideoPlayer.Controllers
                 if (videoFiles.Files == null || videoFiles.Files.Count == 0)
                 {
                      ModelState.AddModelError("", "No files selected for upload.");
-                     return View();    
+                    return PartialView("UploadFiles", videoFiles);
                 }
                 var success = await _filerepository.UploadFiles(videoFiles);
                 if (success)
                 {
-                    return RedirectToAction("Catalogue", "Upload");
+                    return RedirectToAction("Catalogue", "Upload", new { partial = true });
                 }
                 else
                 {
                     ModelState.AddModelError("", "Failed to upload files. Please try again later.");
-                    return View();
+                    return PartialView("UploadFiles", videoFiles);
                 }
             }
             catch (System.Exception ex)
             {
                 ModelState.AddModelError("", $"An error occurred: {ex.Message}");
-                return View();
+                return PartialView("UploadFiles", videoFiles);
             }
         }
 

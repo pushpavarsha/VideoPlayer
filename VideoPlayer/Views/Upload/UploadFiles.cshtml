@@ -24,7 +24,7 @@
                 }
             </div>
         }
-        <form id="uploadForm" onsubmit="return SubmitFiles('UploadFiles');" asp-controller="Upload" asp-action="UploadFiles" method="post" enctype="multipart/form-data">
+        <form id="uploadForm" onsubmit="return SubmitFiles();" asp-controller="Upload" asp-action="UploadFiles" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <p for="fileInput" class="info"><i><b>Choose MP4 files to upload to Video Catalogue</b></i></p>
                 <input type="file" id="fileInput" name="Files" accept=".mp4" multiple>

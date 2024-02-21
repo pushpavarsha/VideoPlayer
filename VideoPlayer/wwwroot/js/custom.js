@@ -17,29 +17,26 @@ function loadView(viewName) {
         }
     });
 }
-
-function SubmitFiles(viewName) {
+function SubmitFiles() {
     var formData = new FormData($('#uploadForm')[0]);
     $.ajax({
-        url: '/Upload/' + viewName,
+        url: '/Upload/UploadFiles',
         type: 'POST',
-        data: { videoFiles: formData},
+        data: formData,
+        processData: false,
+        contentType: false,
         success: function (data) {
             $('#content-main').html(data);
         },
         error: function (xhr, status, error) {
+            var errorMessage;
             if (xhr.status === 413) {
-                var errorMessage = "File(s) too large. Please try again.";
-                displayModelError(errorMessage);
+                errorMessage = "File(s) too large. Please try again.";
             } else {
-                var errorMessage = "An error occurred while uploading files. Please try again later.";
-                displayModelError(errorMessage);
+                errorMessage = "An error occurred while uploading files. Please try again later.";
             }
+            $('#content-main').html('<div class="alert alert-danger">' + errorMessage + '</div>');
         }
     });
     return false;
-}
-function displayModelError(errorMessage) {
-    $('.alert-danger').html('<span><i><b>' + errorMessage + '</b></i></span><br>');
-    $('.alert-danger').show();
 }
