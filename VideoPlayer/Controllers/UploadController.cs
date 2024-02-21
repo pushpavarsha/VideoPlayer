@@ -66,6 +66,11 @@ namespace VideoPlayer.Controllers
                      ModelState.AddModelError("", "No files selected for upload.");
                     return PartialView("UploadFiles", videoFiles);
                 }
+                if (videoFiles.Files.Any(file => Path.GetExtension(file.FileName).ToLower() != ".mp4"))
+                {
+                    ModelState.AddModelError("", "Only .mp4 files are allowed.");
+                    return PartialView("UploadFiles", videoFiles);
+                }
                 var success = await _filerepository.UploadFiles(videoFiles);
                 if (success)
                 {
